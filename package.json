@@ -1,16 +1,5 @@
 {
   "dependencies": {
-    "express": "^4.19.2",
-    "nodemon": "^3.1.4"
-  },
-  "name": "csv-json-convertor",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon index.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": ""
+    "axios": "^1.7.3"
+  }
 }
