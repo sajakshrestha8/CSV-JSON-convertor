@@ -1,4 +1,19 @@
-const fs = require("fs");
-const Data = fs.readFileSync("./data.csv");
+const express = require("express");
+const app = express();
 
-console.log(Data);
+const port = 8000;
+
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("Hello");
+});
+
+app.post("/", (req, res) => {
+  const payload = req.body;
+  res.send(payload);
+});
+
+app.listen(port, () => {
+  console.log("Server running in port " + port);
+});
