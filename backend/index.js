@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+let jsonData = [];
 const csvData = [];
 
 const port = 8000;
@@ -10,13 +11,13 @@ app.use(express.text());
 app.use(cors());
 
 app.get("/", (req, res) => {
-  res.send("Hello");
+  res.send(jsonData);
 });
 
 app.post("/", (req, res) => {
-  const jsonData = [];
-  const payload = req.body.data;
+  let payload = req.body.data;
   csvData.push(payload);
+  jsonData = [];
 
   let splitData = csvData.toString().split("\n");
   let header = splitData[0].split(",");
@@ -30,8 +31,8 @@ app.post("/", (req, res) => {
     jsonData.push(bracket);
   }
 
-  console.log(header);
   res.send(jsonData);
+  console.log(csvData);
 });
 
 app.listen(port, () => {
