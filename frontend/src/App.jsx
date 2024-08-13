@@ -1,10 +1,11 @@
 import axios from "axios";
+import "./CSS/index.css";
 import { useEffect } from "react";
 import { useState } from "react";
 
 export default function App() {
   const [csvdata, setCsvdata] = useState("");
-  const [output, setOutput] = useState([{}]);
+  const [output, setOutput] = useState([]);
   const url = "http://localhost:8000/";
 
   async function fetching() {
@@ -45,7 +46,7 @@ export default function App() {
       />
       <button onClick={fetching}>click</button>
       <button onClick={getting}>get data</button>
-      <div>{JSON.stringify(output)}</div>
+      <div className="output">{JSON.stringify(output)}</div>
     </>
   );
 }

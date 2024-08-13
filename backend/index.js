@@ -15,9 +15,9 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
+  jsonData = [];
   let payload = req.body.data;
   csvData.push(payload);
-  jsonData = [];
 
   let splitData = csvData.toString().split("\n");
   let header = splitData[0].split(",");
