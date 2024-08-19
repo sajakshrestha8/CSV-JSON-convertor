@@ -2,6 +2,8 @@ import axios from "axios";
 import "./CSS/index.css";
 import { useEffect } from "react";
 import { useState } from "react";
+import CsvEntry from "./assets/Components/CsvEntry";
+import JsonOutput from "./assets/Components/JsonOutput";
 
 export default function App() {
   const [csvdata, setCsvdata] = useState("");
@@ -37,13 +39,14 @@ export default function App() {
   }, []);
   return (
     <>
-      <textarea
-        type="textfield"
-        id="CsvData"
-        onChange={(e) => {
+      <CsvEntry
+        name={"CsvData"}
+        id={"CsvData"}
+        change={(e) => {
           setCsvdata(e.target.value);
         }}
       />
+      <JsonOutput />
       <button onClick={fetching}>click</button>
       <button onClick={getting}>get data</button>
       <div className="output">{JSON.stringify(output)}</div>
